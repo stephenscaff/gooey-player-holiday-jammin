@@ -1,0 +1,61 @@
+//----------------------------------------------
+// Playlist
+// Playlist Scene, housing the playlist peeps,
+// player ui and equalizer (audio vis)
+//
+// @see playlist-peep.scss for single playlist-peep instance
+// @see player.scss for player, ui
+// @see equalizer.scss for equalizer (audio vis)
+//----------------------------------------------
+.playlist {
+
+  &__header {
+    position: relative;
+    display:flex;
+    align-items:center;
+    width: 100%;
+    margin: 0 auto;
+    padding: $pad + 1em 0 0;
+    text-align: center;
+    transform: translateY(-150%);
+    opacity: 0;
+    transition: transform 0.5s 0.5s $ease-cb-2, opacity 0.5s 0.5s ease;
+
+    #scene-playlist.is-entered & {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  &__title {
+    font-family: $font-header;
+    line-height: 0.9em;
+    text-align: center;
+    color:  $color-alpha;
+    @include font-rwd(2em, 3em);
+
+    span {
+      display: block;
+    }
+  }
+
+  .title-jammin {
+    @media (min-width: $mq-med) {
+      margin-left: 3em;
+    }
+  }
+
+  &__peeps {
+    position: relative;
+    padding: $pad-sm 0;
+
+    @media (min-width: $mq-med) {
+      padding: $pad 0 12em;
+    }
+  }
+
+
+  &__grid {
+    @include flex-grid(2,3,4,5, $pad-horz: $pad-col, $pad-vert: $pad-col);
+  }
+}

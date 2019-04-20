@@ -1,0 +1,60 @@
+//--------------------------------------------
+// App Header
+//--------------------------------------------
+.app-header{
+  z-index: $z-header + 7;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  display: block;
+  padding: $pad-sm 0;
+  height: 3.5em;
+
+  @media (min-width: $mq-med) {
+    padding: $pad 0;
+  }
+
+  &__grid {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__title {
+    line-height: 0.9em;
+    text-align: center;
+    color:  $color-alpha;
+    @include font-rwd(2em, 3em);
+
+    span {
+      display: block;
+    }
+  }
+
+  .title-jammin {
+    @media (min-width: $mq-med) {
+      margin-left: 3em;
+    }
+  }
+
+  &__logo{
+    color: $color-grey;
+  }
+
+  &__logo svg {
+    width: $gr-logo-size;
+
+    path {
+      stroke:  $color-alpha;;
+    }
+  }
+
+  &__toggle {
+    font-size: 1em;
+    appearance:none;
+    background-color: $color-transparent;
+    border: 0;
+    color: $color-alpha;
+    font-family: $font-mono;
+    font-size: $font-xs;
+  }
+}

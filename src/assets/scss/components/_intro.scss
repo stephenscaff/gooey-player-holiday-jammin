@@ -1,0 +1,116 @@
+//----------------------------------------------
+// Scene Intro
+// Intro Screen
+//----------------------------------------------
+.intro {
+  z-index: 91;
+  position: fixed !important;
+  top: 0;
+  height: 100vh;
+  width: 100%;
+
+  &__close {
+    z-index: 6;
+    position: absolute;
+    top: 2em;
+    right: 0;
+    color: $color-white;
+    @media (min-width: $mq-med) {
+      top: $pad;
+      right: 0;
+    }
+  }
+  &__main {
+    position: relative;
+    z-index: 4;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+  &__logo {
+    display: block;
+    margin: 0 auto 1em;
+    animation: fade-in 1s 0.2s ease both;
+
+    &-icon {
+      display: block;
+      margin-bottom: 0.25em;
+    }
+    &-icon svg {
+      width: $gr-logo-size;
+    }
+    &-icon path {
+      stroke: #fff;
+    }
+
+    &-label {
+      display: block;
+      color: $color-white;
+      font-family: $font-mono;
+      font-size: $font-xs;
+    }
+  }
+
+  &__title {
+    color: $color-white;
+    @include font-rwd($font-xxl, $font-xxxl);
+    animation: fade-in 1s 1s ease both;
+  }
+
+  &__subtitle {
+    color: darken($color-alpha, 50);
+    color: rgba($color-white, 0.8);
+    animation: fade-in 1.5s 1s ease both;
+  }
+
+  &__text {
+    max-width: 33em;
+    margin: 0 auto 0.75em;
+    color: rgba($color-white, 0.8);
+    font-size: $font-sm;
+    animation: fade-in 2s 1s ease both;
+
+  }
+
+  &__btn {
+    display: block;
+    margin-top: $pad;
+    text-align: center;
+    animation: fade-in 2.5s 1s ease both;
+
+    a {
+      display: block;
+      text-align: center;
+    }
+  }
+
+  i {
+    display: block;
+    text-align: center;
+    color: $color-white;
+  }
+}
+
+// .goo-layer {
+//   path {
+//     fill: $color-alpha;
+//   }
+// }
+
+
+.goo-layer{
+	position: relative;
+	z-index: 10;
+	margin: -5px 0 0 0; /* Hide the gap */
+}
+
+.goo-layer-svg {
+	height: 100vh;
+	width: 100%;
+	display: block;
+	fill: $color-alpha;
+}

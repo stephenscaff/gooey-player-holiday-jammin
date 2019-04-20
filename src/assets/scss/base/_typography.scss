@@ -1,0 +1,79 @@
+//----------------------------------------------
+//  Headings
+//----------------------------------------------
+%font-xxl, h1 {
+  margin-bottom: $pad-xxs;
+  line-height: 1.25;
+  @include font-rwd($font-xxl)
+}
+
+%font-xl, h2 {
+  margin-bottom: $pad-xxs;
+  line-height: 1.25;
+  @include font-rwd($font-xl)
+}
+
+%font-lg, h3 {
+  margin-bottom: $pad-xxs;
+  line-height: 1.25;
+  @include font-rwd($font-lg)
+}
+
+%font-med, h4 {
+  margin-bottom: $pad-xxs;
+  line-height: 1.25;
+  @include font-rwd($font-med)
+}
+
+%font-base, h5{
+  margin-bottom: $pad-xxs;
+  line-height: 1.25;
+  @include font-rwd($font-base)
+}
+
+h1,h2,h3,h4,h5{
+  font-family: $font-header;
+  font-weight: 400;
+  color: $color-alpha;
+}
+
+
+
+//----------------------------------------------
+//  paragraphs
+//----------------------------------------------
+p {
+  margin-top: 0;
+  margin-bottom: $pad-xs;
+  @media (min-width: $mq-xxl){
+    //font-size: $font-sma;
+  }
+}
+
+b, strong{
+  font-weight: 700;
+}
+
+small {
+  display: block;
+  margin-bottom: 1em;
+  font-size: $font-xs;
+}
+
+.text-creds {
+  margin: 1.5em auto;
+  font-family: $font-mono;
+  font-size: $font-xs;
+
+  a {
+    color: darken($color-alpha, 10);
+  }
+}
+
+//----------------------------------------------
+//  Selection
+//----------------------------------------------
+::selection {
+  color: white;
+  background: $color-alpha;
+}

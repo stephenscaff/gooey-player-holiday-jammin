@@ -1,0 +1,31 @@
+.equalizer {
+  z-index: 4;
+  position: fixed;
+  left: 0;
+  bottom: -16em; // el height, - bar height + height of player bar
+  height: 30em;
+  width: 100%;
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  filter: url("#goo");
+  //filter: url(http://127.0.0.1/holiday-2018/dist/index.html#goo);
+  transform: translateZ(0);
+  will-change: transform;
+
+  @media (max-width: $mq-med) {
+    display: none;
+  }
+
+  .bar {
+    background-color: $color-alpha;
+    flex: 1 1 auto;
+    height: 20em;
+    //width: calc(100 / 128);
+    // width: (100 / 127) * 1%;
+    min-width: 1%;
+    transform: translateZ(0);
+    will-change: transform;
+  }
+}

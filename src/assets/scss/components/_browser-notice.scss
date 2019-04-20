@@ -1,0 +1,117 @@
+//----------------------------------------------
+// Bad Browsers Notice
+//----------------------------------------------
+.browser-notice {
+  // z-index: -2;
+  z-index: 99;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  display: none;
+  opacity: 0;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  overflow-y: auto;
+  color: #fff;
+  transition: opacity 1s ease;
+  backface-visibility: hidden;
+
+  .browser-notice-is-active & {
+    animation: fade-in 1s ease both;
+    opacity: 1;
+    display: block;
+  }
+
+  .browser-notice-is-closing & {
+    opacity: 0 !important;
+    animation: fade-out 1s ease both;
+    transition: opacity 0.4s ease;
+  }
+
+  .browser-notice-is-closed & {
+    opacity: 0;
+    display: none;
+  }
+  &__box {
+    position: absolute;
+    left: 0;
+    right:0;
+    top: 1em;
+    width: 95%;
+    height: 70vh;
+    // max-width: 36em;
+    margin:  0 auto;
+    background-color: darken($color-alpha, 5);
+    text-align: center;
+
+    @media (min-width: $mq-med) {
+      top: 3em;
+      max-width: 80%;
+      // min-height: 70vh;
+      min-height: 30em;
+    }
+
+    & > div {
+      padding: 1em 1em 3em;
+    }
+  }
+
+  &__deer-wrap {
+    width: 14em;
+    margin: 0 auto 1em;
+  }
+
+  .is-ie-11  &__deer-wrap svg,
+  .is-ie  &__deer-wrap svg {
+    height: 15em;
+  }
+
+  &__title {
+    color: $color-white;
+  }
+
+  &__text {
+    max-width: 29em;
+    margin: 0 auto 1em;
+    font-size: $font-sm;
+    color: $color-white;
+  }
+
+  .btns a {
+    padding: 1em 2em;
+
+    @media (min-width: $mq-med) {
+      padding: 2em;
+    }
+
+    &:hover {
+      color: lighten($color-alpha, 20);
+    }
+  }
+}
+
+// Remove I'm Cool button for IEz
+.is-ie-11 .btn-im-cool {
+  display: none !important;
+}
+
+.is-ie, .is-ie-11, .is-ie-10 {
+  .btn-mono.btn-im-cool {
+    display: none !important;
+  }
+  .intro__main {
+    display: none;
+  }
+}
+
+.browser-notice.is-country {
+  display: none !important;
+}
+
+.is-not-us .browser-notice.is-country {
+  display: block !important;
+  animation: fade-in 1s ease both;
+}

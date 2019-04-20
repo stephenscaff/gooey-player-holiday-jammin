@@ -1,0 +1,52 @@
+//----------------------------------------------
+// Typography
+//----------------------------------------------
+body {
+  font-family: $font-paragraph;
+  line-height: $base-lineheight;
+  color: $color-alpha;
+  background-color: $color-alpha-light;
+  font-size: 102%;
+}
+
+//----------------------------------------------
+// Fluid body sizing
+//----------------------------------------------
+html.is-goodie body{
+  font-size: 102%;
+
+  @media (min-width: $mq-med) {
+    font-size: calc(0.05vw + 100%);
+  }
+  @media (min-width: $mq-xl) {
+    font-size: calc(0.2vw + 100%);
+  }
+  @media (min-width: $mq-xxl) {
+    font-size: calc(0.22vw + 100%);
+  }
+}
+
+
+html.is-ms, html.is-ie, html.is-ie-11, html.is-ie-10, html.is-edge {
+  body {
+
+    @media (min-width: $mq-sm) {
+      font-size: 105%;
+    }
+    @media (min-width: $mq-med) {
+      font-size: 109%;
+    }
+    @media (min-width: $mq-lg) {
+      font-size: 113%;
+    }
+    @media (min-width: $mq-xl) {
+      font-size: 121%;
+    }
+    @media (min-width: $mq-xxl) {
+      font-size: 125%
+    }
+    @media (min-width: $mq-xxxl) {
+      font-size: 135%;
+    }
+  }
+}

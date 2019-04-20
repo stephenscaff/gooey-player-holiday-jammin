@@ -1,0 +1,218 @@
+//----------------------------------------------
+// Playlist Peep
+// Single Playlist Peep Element
+//----------------------------------------------
+
+$color-alpha-lighten: lighten( $color-alpha, 20);
+$color-alpha-darken: darken( $color-alpha, 15);
+
+.playlist-peep {
+  position: relative;
+  opacity: 0;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+
+  #scene-playlist.is-entered & {
+    opacity: 1;
+    transition: opacity 1.5s ease;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    @include nth-trans-delay(68, 0.1s);
+  }
+
+  &__link {
+    position: relative;
+    display: block;
+    text-align: center;
+    cursor: pointer;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+
+    &.is-playing {
+      transform: translateZ(0);
+      -webkit-backface-visibility: hidden;
+      backface-visibility: hidden;
+    }
+  }
+
+  &__figure {
+    z-index: 2;
+    position: relative;
+    margin: 0 auto;
+    border-radius: 100%;
+    width: 7em;
+    height: 7em;
+    outline: 1px solid transparent;
+    border: 7px solid rgba(255,255,255,0.8);
+    transform: scale(0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    will-change: transform;
+
+    @media (min-width: $mq-sm) {
+      width: 9em;
+      height: 9em;
+    }
+    #scene-playlist.is-entered & {
+      transform: scale(1);
+      transition: transform 1.25s $ease-cb-2;
+      @include nth-trans-delay(68, 0.1s);
+      -webkit-backface-visibility: hidden;
+      backface-visibility: hidden;
+      will-change: transform;
+    }
+
+    .is-playing & {
+      border: 0;
+      //background-color: $color-alpha;
+      //background: linear-gradient(45deg, $color-alpha-lighten, $color-alpha, $color-alpha-lighten, $color-alpha, $color-alpha-darken);
+      animation: spin 3s linear  infinite;
+    }
+    &:before {
+      z-index: -4;
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      margin: auto;
+      //background-color: lighten($color-alpha, 20);
+      border-radius: 100%;
+      background: linear-gradient(45deg, $color-alpha-lighten,  $color-alpha, $color-alpha-lighten,  $color-alpha, $color-alpha-darken);
+      transform: scale(0);
+      transition: background-color 0.4s 0.1s $ease-cb-3, transform 0.4s 0.1s $ease-cb-3;
+      -webkit-backface-visibility: hidden;
+      backface-visibility: hidden;
+
+      .is-playing & {
+        background-color: lighten( $color-alpha, 11);
+        transform: scale(1);
+      }
+    }
+
+    &:after {
+      z-index: -3;
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      margin: auto;
+      background-color:  $color-alpha;
+      background: repeating-radial-gradient( circle at center,  $color-alpha 3px, transparent 6px );
+      border-radius: 100%;
+      transform: scale(0);
+      transition: transform 0.4s 0.1s $ease-cb-3;
+      -webkit-backface-visibility: hidden;
+      backface-visibility: hidden;
+
+      .is-playing & {
+        transform: scale(1);
+      }
+    }
+  }
+
+  &__scaler {
+    position: relative;
+    ///overflow: hidden;
+    transform: scale(1);
+    transition: transform 0.4s $ease-cb;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+
+    &__link:hover & {
+      transform: scale(0.9);
+    }
+  }
+
+  &__link:hover &__scaler {
+    transform: scale(0.9);
+  }
+
+  &__spindle {
+    z-index: 6;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    width: 5px;
+    height: 5px;
+    background-color: $color-alpha-light;
+    border-radius: 50%;
+    box-shadow: rgba(0, 0, 0, 0.1) 0 0 20px 1px;
+    transform: scale(0);
+
+    .is-playing & {
+      transform: scale(1);
+      transition: transform 0.5s $ease-cb-2;
+    }
+  }
+
+  &__img {
+    z-index: 6;
+    position: relative;
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    margin: 0 auto;
+    border-radius: 100%;
+    overflow: hidden;
+    filter: grayscale(100%);
+    transform: scale(1);
+    transition: transform 0.5s $ease-in-out-back;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+
+    .is-playing & {
+      filter: grayscale(50%);
+      border: 5px solid rgba(255, 255, 255, 0.6);
+      // background: linear-gradient(to right, $color-alpha-lighten, $color-alpha-darken);
+      transform: scale(0.6);
+    }
+  }
+
+  &__name {
+    margin-top: $pad-xxs;
+    margin-bottom: 0;
+    color:  $color-alpha;
+  }
+
+  &__role {
+    display: block;
+    line-height: 1.5;
+    font-size: $font-xs;
+    color:  $color-alpha;
+  }
+
+  &__icon {
+    z-index: 6;
+    position: absolute;
+    height: 2.5em;
+    width: 2.5em;
+    top: 0.25em;
+    right: calc(100% / 9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color:  $color-alpha;
+    background-color: $color-white;
+    border-radius: 100%;
+    overflow: hidden;
+    transform: scale(0);
+    transition: transform 0.5s 0.25s $ease-in-out-back-lg;
+
+    @media (min-width: $mq-xxl) {
+      right: calc(100% / 5);
+    }
+
+    .is-playing & {
+      transform: scale(1);
+    }
+  }
+}

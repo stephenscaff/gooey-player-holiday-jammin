@@ -1,0 +1,78 @@
+//----------------------------------------------
+//  Button Theme
+//  Default Button
+//----------------------------------------------
+%btn-theme{
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  width: auto;
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  border: 0;
+  @extend %font-links !optional;
+  font-weight: 600;
+  text-align: center;
+  cursor: pointer;
+  -webkit-appearance: none;
+}
+
+
+//----------------------------------------------
+//  Basic Button
+//----------------------------------------------
+.btn{
+  @extend %btn-theme;
+  padding: 0.7em 2.5em;
+  color: #fff;
+  background-color: $color-alpha;
+  transition: background-color 0.4s $ease-cb-2, color 0.5s $ease-cb-2;
+
+  &:hover{
+    background-color: lighten($color-alpha, 20);
+    transition: background-color 0.4s $ease-cb-2, color 0.5s $ease-cb-2;
+  }
+}
+
+//----------------------------------------------
+//  Button Letters
+//----------------------------------------------
+.btn-mono {
+  position: relative;
+  display: inline-block;
+  font-family: $font-mono;
+  font-size: $font-xs;
+  letter-spacing: 0.07em;
+  line-height: 1.2;
+  color: $color-white;
+  cursor: pointer;
+  transition: color 0.4s ease;
+
+  &:hover {
+    color: rgba($color-white, 0.7);
+
+    i {
+      transform: translateY(0.25em);
+    }
+  }
+
+  &__label {
+    color: $color-white;
+    margin-bottom: $pad-xxs;
+  }
+
+  i {
+    margin-top: 0.75em;
+    font-size: 2em;
+    transition: transform 0.3s $ease-in-back;
+  }
+}
+
+.btn-link.is-darken-white {
+  color: darken($color-alpha, 10) !important;
+
+  &:hover {
+    color: $color-white !important;
+  }
+}

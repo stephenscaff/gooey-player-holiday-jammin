@@ -1,0 +1,132 @@
+//----------------------------------------------
+// Scenes
+//----------------------------------------------
+.scene {
+  position: absolute;
+  width: 100%;
+  transition: transform 0.5s ease;
+}
+
+.scene {
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  //padding: $pad 0;
+  // background: #fff;
+  // overflow-y: auto;
+
+  &.is-above {
+    left: 0;
+    transform: translate3d(0,-200%,0);
+    transition: transform 1s ease-in-out;
+  }
+
+  &.is-below {
+    bottom: 0;
+    transform: translate3d(0,100%,0);
+    transition: transform 1s $ease-cb-2;
+  }
+
+  &.is-left {
+    left: 0;
+    transform: translate3d(-110%,0,0);
+    transition: transform 0.5s $ease-cb-2;
+  }
+
+  &.is-right {
+    right: 0;
+    transform: translate3d(110%,0,0);
+    transition: transform 0.5s $ease-cb-2;
+  }
+
+  &__close {
+    position: absolute;
+    top: 2em;
+    right: 1em;
+    opacity: 0;
+    transition: opacity 1s 0.3s ease;
+
+    .is-entered & {
+      opacity: 1;
+    }
+  }
+}
+
+//----------------------------------------------
+// Scene Entering
+//----------------------------------------------
+.scene-is-entering, .scene-is-entered {
+  .scene.is-entered {
+    z-index: 91;
+    transform: translate3d(0,0,0);
+  }
+}
+
+// No Scroll when active
+.scene-is-entered,
+.scene-is-entered body {
+  overflow-y: hidden;
+}
+
+//----------------------------------------------
+// Scene : Welcome
+//----------------------------------------------
+html.welcome-is-entered,
+html.welcome-is-entered body {
+  overflow-y: hidden;
+  height: 100vh;
+}
+
+.welcome-is-exiting  #scene-welcome{
+  transform: translateY(-200vh);
+  transition: transform 1s 0.4s ease;
+
+  .intro__main {
+    opacity: 0;
+    transition: opacity 1s ease;
+  }
+}
+
+.welcome-is-exited  #scene-welcome {
+  transform: translateY(-200vh) !important;
+}
+
+//----------------------------------------------
+// Scene : Share
+//----------------------------------------------
+#scene-share {
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height:100vh;
+  // overflow-y: hidden;
+
+  * {
+    color: $color-alpha-light;
+  }
+
+  a {
+    @include links($color-white, $color-alpha-light);
+  }
+
+  .svg-brand path {
+    stroke: $color-alpha-light;
+  }
+
+  .at-share-btn-elements svg path {
+    fill: $color-alpha-light;
+  }
+
+  .intro__main {
+    opacity: 0;
+    transition: opacity 1s 1s ease;
+  }
+
+  &.is-entered .intro__main{
+    opacity: 1;
+  }
+  a.at-icon-wrapper.at-share-btn {
+    background: $color-alpha !important;
+  }
+}

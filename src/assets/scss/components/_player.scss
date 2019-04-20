@@ -1,0 +1,89 @@
+.player {
+  z-index: 5;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  padding: $pad-xs 0;
+  background-color: $color-alpha;
+
+  .plyr__controls {
+    background-color:  $color-alpha;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 0.15em 1em;
+
+    @media (min-width: $mq-med) {
+      padding: 1em 2em;
+    }
+
+    @media (max-width: $mq-med) {
+      flex-wrap: wrap;
+    }
+  }
+
+  .plyr__song-info {
+    @media (max-width: $mq-med) {
+      flex-basis: 100%;
+      margin-bottom: 1em;
+    }
+  }
+
+  .plyr__controls
+  .plyr--audio .plyr__control.plyr__tab-focus,
+  .plyr--audio .plyr__control:hover,
+  .plyr--audio .plyr__control[aria-expanded=true] {
+    background-color:  $color-alpha;
+  }
+
+  .plyr__control svg,
+  .plyr__time.plyr__time--current,
+  .plyr__time {
+    color: $color-white;
+  }
+
+  .plyr__progress__buffer{
+    //height: 2px !important;
+  }
+
+  .plyr__song-info {
+    text-align: left;
+    line-height: 1.2;
+    color: #fff;
+  }
+
+  .plyr__song-name {
+    display: block;
+    margin-bottom: 0.25em;
+    font-family: $font-header;
+    font-size: 1.25em;
+    letter-spacing: 0.05em;
+    color: $color-white;
+    @include font-rwd(1.1em, 1.25em);
+  }
+
+  .plyr__song-artist {
+    font-weight: 400;
+    color: $color-white;
+  }
+
+  .plyr__utils {
+    display: flex;
+    justify-content: space-around;
+    flex-basis: 50%;
+    align-items: center;
+
+    @media (max-width: $mq-med) {
+      flex-basis: 100%;
+      width: 100%;
+    }
+  }
+
+  .plyr__sounds, .plyr__times {
+    display: flex;
+
+    @media (max-width: $mq-med) {
+      display: none !important;
+    }
+  }
+}
