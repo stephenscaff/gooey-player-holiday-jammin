@@ -81,7 +81,7 @@ analyser.smoothingTimeConstant = 0.89;
 
 An SVG Filter is then used to create that gooey effect where available.
 
-- [Nice MDN resource about visualizing audio api]('https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API/Visualizations_with_Web_Audio_API')
+- [MDN resource about visualizing audio api](https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API/Visualizations_with_Web_Audio_API)
 
 
 ### Gooey
