@@ -9,14 +9,14 @@ const HBSHelpers = (() => {
     /**
      * Init
      */
-    init: function() {
+    init() {
       this.hbHelpers()
     },
 
     /**
      * Our Global HB Helpers
      */
-    hbHelpers: function(){
+    hbHelpers(){
 
       /**
        * Debug Helper

@@ -1,13 +1,4 @@
 //----------------------------------------------
-//  Main app.css build
-//  --
-//  Tools:        mixins, extends, modules
-//  Base:         Styles for base level elements
-//  Components:   Modular components. Most styles will go here
-//  Utils:        Helpers, Utilities, Animations
-//----------------------------------------------
-
-//----------------------------------------------
 // Master Config and Vars
 //----------------------------------------------
 @import '_config';
@@ -20,7 +11,6 @@
 @import 'tools/_grid';
 @import 'tools/_positioning';
 @import 'tools/_type';
-
 
 //----------------------------------------------
 // Base - base level commons

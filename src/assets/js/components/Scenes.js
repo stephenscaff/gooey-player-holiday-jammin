@@ -24,19 +24,22 @@ const Scenes = (() => {
     /**
      * Init
      */
-    init: function(){
+    init(){
       this.bindEvents()
     },
 
     /**
      * Bind Events
      */
-    bindEvents: function() {
+    bindEvents() {
 			Scenes.welcomeExit()
 			Scenes.handleClicks()
     },
 
-		handleClicks: function() {
+    /**
+     * Handle Click Events
+     */
+		handleClicks() {
 			Utils.forEach ( sceneLinks, function (index, sceneLink) {
 
         // Main Click to Open Event
@@ -64,7 +67,7 @@ const Scenes = (() => {
           })
 
           // Manual Esc exit
-          window.onkeydown = function(e) {
+          window.onkeydown = (e) => {
             if (e.keyCode === 27) {
               Scenes.exit(sceneLink, targetSceneId, goo)
             }
@@ -73,11 +76,14 @@ const Scenes = (() => {
       })
 		},
 
-		welcomeExit: function() {
-			var scene =  document.querySelector('#scene-welcome')
-			var exitLink = document.querySelector('.js-exit-welcome')
-			var scenePlaylist = document.querySelector('#scene-playlist')
-			var goo = Scenes.getGoo(scene)
+    /**
+     * Welcome Scene Exit
+     */
+		welcomeExit() {
+			let scene =  document.querySelector('#scene-welcome')
+			let exitLink = document.querySelector('.js-exit-welcome')
+			let scenePlaylist = document.querySelector('#scene-playlist')
+			let goo = Scenes.getGoo(scene)
 
 			exitLink.addEventListener('click', function(){
 				html.classList.add('welcome-is-exiting')
@@ -100,7 +106,7 @@ const Scenes = (() => {
     /**
      * Open Drawer
      */
-    enter: function(link, id, goo_path){
+    enter(link, id, goo_path){
       html.classList.remove('scene-is-exited')
       html.classList.add('scene-is-entering')
       id.classList.remove('is-exited')
@@ -119,7 +125,7 @@ const Scenes = (() => {
     /**
      * exit
      */
-    exit: function(link, id, goo_path){
+    exit(link, id, goo_path){
       html.classList.add('scene-is-exiting')
 			id.classList.add('is-exiting')
 
@@ -140,7 +146,7 @@ const Scenes = (() => {
      * GetGooey
      * Helper to grab SVG element's path in scene
      */
-		getGoo: function(el) {
+		getGoo(el) {
 			const shape = el.querySelector('.goo-layer-svg')
 			const path = 	shape.querySelector('path')
 
@@ -151,8 +157,8 @@ const Scenes = (() => {
      * Animate Goo In
      * Animates path via pathdata:id within SVG returned via GetGoo()
      */
-		animateGooIn: function(goo_path) {
-			var gooTransition = anime({
+		animateGooIn(goo_path) {
+			let gooTransition = anime({
 				targets: goo_path,
 				duration: 1000,
 				delay: 100,
@@ -165,8 +171,8 @@ const Scenes = (() => {
      * Animates path via pathdata:back within SVG returned via GetGoo()
      * pathdata:back is basically the returning state.
      */
-		animateGooOut: function(goo_path) {
-			var gooTransition = anime({
+		animateGooOut(goo_path) {
+			let gooTransition = anime({
 				targets: goo_path,
 				duration: 1000,
 				delay: 100,

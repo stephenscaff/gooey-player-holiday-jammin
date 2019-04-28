@@ -13,11 +13,11 @@ const Snow = (() => {
 
 	return {
 
-		init: function() {
+		init() {
       if (WhoDis.aboveMedMq()) this.bindEvents()
 		},
 
-		bindEvents: function() {
+		bindEvents() {
 			this.fall()
 			this.kill()
 		},
@@ -30,7 +30,7 @@ const Snow = (() => {
 		 *				 internal raf loop. Couldn't get good ranomization
 		 *				 out the box though.
 		 */
-		fall: function() {
+		fall() {
 			Utils.forEach ( snowflakes, function (i, snowflake) {
 
 				var randomFlake = '.js-snow-item-'+ anime.random(1, snowflakes.length)
@@ -56,7 +56,7 @@ const Snow = (() => {
 		 * anime.js baked in pause wouldn't work with our loop.
 		 * So, let's just remove() snow els when clicking scene exit link.
 		 */
-		kill: function() {
+		kill() {
 			killBtn.addEventListener('click', function() {
 				//snowflakes.classList.add('.fade-out')
 

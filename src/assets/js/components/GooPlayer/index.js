@@ -3,11 +3,9 @@ import Peeps from './Peeps.js'
 import PlyrUI from './PlyrUI.js'
 
 Peeps.init()
-
 PlyrUI.init()
 
-
-
 setTimeout(function(){
-  GooPlayer.init()
+  let Goo = new GooPlayer();
+  Goo.init();
 }, 1200)
