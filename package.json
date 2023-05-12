@@ -26,7 +26,7 @@
     "gulp-rename": "^1.4.0",
     "gulp-sass": "^5.1.0",
     "gulp-sourcemaps": "^2.6.4",
-    "gulp-terser": "^1.1.7",
+    "gulp-terser": "^1.4.1",
     "gulp-uglifyes": "^0.2.1",
     "postcss-assets": "^5.0.0",
     "stylelint": "^9.10.1",
