@@ -29,7 +29,7 @@
     "gulp-terser": "^1.4.1",
     "gulp-uglifyes": "^0.2.1",
     "postcss-assets": "^5.0.0",
-    "stylelint": "^9.10.1",
+    "stylelint": "^15.10.3",
     "stylelint-config-standard": "^18.2.0",
     "vinyl-buffer": "^1.0.1",
     "vinyl-source-stream": "^2.0.0"
