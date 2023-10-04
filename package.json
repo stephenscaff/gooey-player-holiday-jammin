@@ -28,7 +28,7 @@
     "gulp-sourcemaps": "^2.6.4",
     "gulp-terser": "^1.4.1",
     "gulp-uglifyes": "^0.2.1",
-    "postcss-assets": "^5.0.0",
+    "postcss-assets": "^6.0.0",
     "stylelint": "^9.10.1",
     "stylelint-config-standard": "^18.2.0",
     "vinyl-buffer": "^1.0.1",
